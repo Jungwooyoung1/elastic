@@ -1,0 +1,22 @@
+# 인덱스 settings info
+GET demo_data/_settings
+
+# 인덱스 데이터갯수
+GET demo_data/_count
+
+# 동의어 검색
+POST demo_data/_search
+{
+  "suggest": {
+    "spell-suggestion": {
+      "text": "ㅅㅣㅇㅜㄹ",
+      "term": {
+        "field": "Title.spell"
+      }
+    }
+  }
+}
+
+
+# 영한변환
+http://15.165.109.114:9200/demo_data/_search?q=tjdnf&pretty
